@@ -1,39 +1,57 @@
 import React, { Component } from 'react';
-import { NICE, SUPER_NICE } from './colors';
+import Home from './Home';
+import Navbar from  './shared/Navbar';
+import { AppBar} from 'material-ui';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppLeftNav from './shared/AppLeftNav';
 
-class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { counter: 0 };
-    this.interval = setInterval(() => this.tick(), 1000);
+class App extends Component{
+
+   constructor(props, context) {
+    super(props, context);
+ 
+  }
+   componentWillMount(){
+   	let setNavBarState = function(){
+   	this.setState({
+   		renderNavBar: document.body.clientWidth > 700
+   	});
+   }.bind(this);
+
+   setNavBarState();
+   window.onresize = setNavBarState;
+
+   }
+
+   getAppBar(){
+    let title = this.context.router.isActive('/home')? 'home':
+    this.context.router.isActive('/account')? 'account':
+    this.context.router.isActive('/about')? 'about':'about';
+    return  ( <AppBar title = {title}  onLeftIconButtonTouchTap = {this._onleftIconButtonTouchTap.bind(this)}  />);
   }
 
-  tick() {
-    this.setState({
-      counter: this.state.counter + this.props.increment
-    });
+  _onleftIconButtonTouchTap(){
+      this.refs.leftNav.handleToggle();
   }
 
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  render() {
-    return (
-      <h1 style={{ color: this.props.color }}>
-        Counter ({this.props.increment}): {this.state.counter}
-      </h1>
-    );
-  }
+   render(){
+   return (
+   	 <MuiThemeProvider>
+      <div className="app-wrap">
+        {this.state.renderNavBar ? <Navbar />:this.getAppBar()}
+        <AppLeftNav ref='leftNav' /> 
+        {this.props.children}
+        <div className="app-footer">我的地盘我做主gyt</div>
+      </div> 
+    </MuiThemeProvider>
+   );
+}
 }
 
-export class App extends Component {
-  render() {
-    return (
-      <div>
-        <Counter increment={1} color={NICE} />
-        <Counter increment={5} color={SUPER_NICE} />
-      </div>
-    );
-  }
-}
+
+App.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
+
+
+export default App;

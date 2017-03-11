@@ -1,0 +1,87 @@
+html{
+	font-family: '微软雅黑';
+	background-color: #fafafa;
+}
+
+*{
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body{
+
+	margin:0;
+	// 可以使页面上的字体抗锯齿，淘宝也在使用。
+    -webkit-font-smoothing: antialiased; 	
+}
+
+.app-wrap{
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	min-height: 100vh;
+}
+
+.app-header{
+    
+    // 也就是说header高度不会变了
+	flex-shrink: 0;
+	height:64px;
+	z-index:4;
+	background-color:#00bcd4;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+.app-footer{
+
+	background-color: #00bad4;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	text-align:center;
+	font-size: 25px;
+	color: #fff;
+	flex-shrink:0;
+}
+
+.home{
+ flex-grow: 1;
+ background-image:url('../assets/home-bg.jpg');
+ background-size: cover;
+ background-position: center center;
+ background-repeat: no-repeat;
+ // 决定背景在视口中固定的还是随把汗它的区块滚动的。
+ background-attachment: fixed;
+ z-index: -1;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ .slogan{
+ 	display: flex;
+ 	justify-content: center;
+ 	text-align: center;
+ 	color: #fff;
+ 	// // 用来转换文本的大小写
+ 	// text-transform: uppercase;
+ 	font-size: 15px;
+ 	font-weight: 500;
+ 	width: 100%;
+ 	padding-bottom:15px;
+ 	padding-top: 15px;
+ 	background-color: rgba(0,0,0,0.5);
+ 	align-items: center;
+ 	flex-direction: column;
+ }
+  .ting{
+  	background-image: url('../assets/ting.png');
+  	width: 100px;
+  	height: 100px;
+  	padding-top: 10px;
+  	background-size: cover;
+  }
+}
+
+.account, .about{
+    flex-grow: 1;
+}
+
+
+@import 'account';
