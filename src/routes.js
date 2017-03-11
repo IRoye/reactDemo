@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 import App from './App';
 import Home from './Home';
-import About from './About';
+import About from './about';
 import Account from './Account';
 
 
