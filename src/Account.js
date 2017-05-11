@@ -15,7 +15,7 @@ class Account extends Component{
       repos: {}
      }
    }
-
+//函数之间是没有逗号或者是分号来间隔的
   isEmpty(value) {
     return Object.keys(value).length === 0;
   }
@@ -33,7 +33,6 @@ class Account extends Component{
 
 	     let GitHubInfo;
        if(!this.isEmpty(this.state.user)){
-        console.log('123' + JSON.stringify(this.state.repos));
           GitHubInfo = (
         <div>
          <UserInfo userInfo={this.state.user} />

@@ -2,6 +2,10 @@ html{
 	font-family: '微软雅黑';
 	background-color: #fafafa;
 }
+html, body{
+	padding: 0;
+	margin: 0;
+}
 
 *{
 	-moz-box-sizing: border-box;
@@ -21,25 +25,86 @@ body{
 	height: 100vh;
 	min-height: 100vh;
 }
-
 .app-header{
     
     // 也就是说header高度不会变了
 	flex-shrink: 0;
 	height:64px;
 	z-index:4;
-	background-color:#00bcd4;
+	background-color: #FAFAFA;
 	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	display: flex;
+    align-items: center;
+	flex-direction: row;
+	justify-content:space-between;
+}
+.search-content{
+	background: rgb(255, 255, 255);
+}
+.app-logo img{
+	 
+    height: 40px;
+    margin-top: 6px; 
+}
+.app-search{
+	display: inline-flex;
+	width: 10%;
+	height: 50px;
+	//是相对于header居中的
+	align-items: center;
+	border: 1px solid #E0E0E0;
+	border-radius: 9px;
+	margin-right: 10%;
+	cursor: pointer;
+    transition: all .4s ease-out;
+}
+.app-search svg{
+	margin-right: 0;
+	
+}
+.search-text{
+	background:#FAFAFA;
+    border:none;
+    outline:medium;
+	width: 75%;
+	height: 75%;
+	font-size:1rem;
+}
+.app-logo{
+	width: 20%;
+	flex-grow: 0;
+	// text-align 内容， 是<img>的话也是可以居中的；
+	text-align: center;	
+}
+
+.app-topnav{
+	width: 30%;
+	height: 100%;
+}
+
+.app-topnav li:hover{
+	background-color: #BDBDBD;
+}
+
+.app-topnav li{
+	transition: 1s;
+}
+
+.app-login{
+	width: 50%;
+	flex-flow: 1;
+	background-color: #E0E0E0;
 }
 .app-footer{
-
-	background-color: #00bad4;
-	padding-top: 30px;
-	padding-bottom: 30px;
+    
+	background-color: #FAFAFA;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	text-align:center;
-	font-size: 25px;
-	color: #fff;
+	font-size: 0.8rem;
+	color:black;
 	flex-shrink:0;
+	border-top: 1px solid  #E0E0E0;
 }
 
 .home{
@@ -81,7 +146,33 @@ body{
 
 .account, .about{
     flex-grow: 1;
+    overflow:auto;
 }
 
+.likes-heart {
+  background: url(http://o86bpj665.bkt.clouddn.com/redux-tower/heart.png) center no-repeat;
+  //设置背景图片的大小， contain 是等比例缩小图片来适应元素的
+  // 尺寸
+  background-size: contain;
+  font-size: 2rem;
+  padding: 1rem;
+  position: absolute;
+  color: #ff4081;
+  left: 50%;
+  top: 50%;
+}
+
+.likes-heart.like-enter {
+  transition: all .2s;
+  transform: translateX(-50%) translateY(-50%) scale(1);
+  opacity: 1;
+}
+.likes-heart.like-enter.like-enter-active {
+  transform: translateX(-50%) translateY(-50%) scale(5);
+}
+
+.likes-heart{
+	  opacity: 0;
+}
 
 @import 'account';

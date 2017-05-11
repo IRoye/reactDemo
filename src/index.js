@@ -7,11 +7,15 @@ import { Router, browserHistory } from 'react-router'
 import routes from './routes';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
+//官方的react 跟redux 的绑定
+import { Provider } from 'react-redux';
+import store, { history } from './store';
+
 injectTapEventPlugin();
+<Router history={history} />
 
+const router = <Provider store={store}><Router history={history}>{routes}</Router></Provider>
 
-<Router history={browserHistory} />
 render(
-  <Router history={browserHistory}>{routes}</Router>,
-  document.getElementById('root')
+  router, document.getElementById('root')
 )

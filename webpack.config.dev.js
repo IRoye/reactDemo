@@ -18,6 +18,7 @@ module.exports = {
     publicPath: '/dist/'
   },
   plugins: [
+  // 热模快替换的功能
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
@@ -37,7 +38,6 @@ module.exports = {
       loader: 'file-loader'
 
     }
-
     ]
   }
 };

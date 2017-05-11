@@ -1,57 +1,77 @@
 import React, { Component } from 'react';
 import Home from './Home';
-import Navbar from  './shared/Navbar';
-import { AppBar} from 'material-ui';
+import Navbar from './shared/Navbar';
+import { AppBar } from 'material-ui';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppLeftNav from './shared/AppLeftNav';
+import Header from './Header';
+import Radium ,{StyleRoot} from 'radium';
+import GoTotop from './goTotop';
 
-class App extends Component{
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from './actions/index';
 
-   constructor(props, context) {
-    super(props, context);
- 
+
+function mapStateToProps(state) {
+  return {
+    courses: state.courses,
+    comments: state.comments
   }
-   componentWillMount(){
-   	let setNavBarState = function(){
-   	this.setState({
-   		renderNavBar: document.body.clientWidth > 700
-   	});
-   }.bind(this);
+}
 
-   setNavBarState();
-   window.onresize = setNavBarState;
+function mapDispachToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
 
-   }
 
-   getAppBar(){
-    let title = this.context.router.isActive('/home')? 'home':
-    this.context.router.isActive('/account')? 'account':
-    this.context.router.isActive('/about')? 'about':'about';
-    return  ( <AppBar title = {title}  onLeftIconButtonTouchTap = {this._onleftIconButtonTouchTap.bind(this)}  />);
-  }
+class App extends Component {
 
-  _onleftIconButtonTouchTap(){
-      this.refs.leftNav.handleToggle();
-  }
+    constructor(props, context) {
+        super(props, context);
+    }
+    componentWillMount() {
+        let setNavBarState = function() {
+            this.setState({
+                renderNavBar: document.body.clientWidth > 700
+            });
+        }.bind(this);
 
-   render(){
-   return (
-   	 <MuiThemeProvider>
-      <div className="app-wrap">
-        {this.state.renderNavBar ? <Navbar />:this.getAppBar()}
-        <AppLeftNav ref='leftNav' /> 
+        setNavBarState();
+        window.onresize = setNavBarState;
+
+    }
+    getAppBar() {
+        let title = this.context.router.isActive('/home') ? 'home' :
+            this.context.router.isActive('/account') ? 'account' :
+            this.context.router.isActive('/about') ? 'about' : 'about';
+        return ( < AppBar title = { title }
+            onLeftIconButtonTouchTap = { this._onleftIconButtonTouchTap.bind(this) }
+            />);
+        }
+
+        _onleftIconButtonTouchTap() {
+            this.refs.leftNav.handleToggle();
+        }
+
+    render() {
+    return (
+   	<MuiThemeProvider>
+           {/*2. 第二部， 拿<StyleRoot> 来替换div标签*/}
+       <StyleRoot className="app-wrap">
+       <Header />
         {this.props.children}
+        {/*布局文件包括header 和 footer */}
         <div className="app-footer">我的地盘我做主gyt</div>
-      </div> 
+        <GoTotop />
+      </StyleRoot> 
     </MuiThemeProvider>
    );
-}
-}
+  }
+    }
+    App.contextTypes = {
+        router: React.PropTypes.object.isRequired
+    };
 
-
-App.contextTypes = {
-  router: React.PropTypes.object.isRequired
-};
-
-
-export default App;
+// 1. 第一步，是在顶层标签下包裹
+export default Radium(App);
