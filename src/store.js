@@ -12,9 +12,12 @@ import comments from './data/comments';
 //声明的常亮是不提升的
 const defaultState = {
     courses: courses,
-    comments: comments
+    comments: comments,
+    hidden : 'hide',
 }
 
+// createStore 参数之前只是一个reducer， 
+// 第二个参数是初始时的 state
 const store = createStore(rootReducer, defaultState);
 
 //命名导出，引用的时候需要使用的是花括号

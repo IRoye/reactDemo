@@ -1,6 +1,9 @@
+//  CSS 的全局污染
+
 html{
-	font-family: '微软雅黑';
+	font-family: 'Monospace';
 	background-color: #fafafa;
+	font-size: 16px;
 }
 html, body{
 	padding: 0;
@@ -21,7 +24,7 @@ body{
 
 .app-wrap{
 	display: flex;
-	flex-direction: column;
+	flex-direction: column; 
 	height: 100vh;
 	min-height: 100vh;
 }
@@ -37,6 +40,10 @@ body{
     align-items: center;
 	flex-direction: row;
 	justify-content:space-between;
+}
+.app-item{
+	height:64px;
+	flex-shrink:0;
 }
 .search-content{
 	background: rgb(255, 255, 255);
@@ -78,7 +85,7 @@ body{
 }
 
 .app-topnav{
-	width: 30%;
+	width: 50%;
 	height: 100%;
 }
 
@@ -174,5 +181,13 @@ body{
 .likes-heart{
 	  opacity: 0;
 }
+
+.toUp{
+      transform: rotate(180deg);
+	  
+ }
+ .hide{
+	 visibility:hidden; 
+ }
 
 @import 'account';

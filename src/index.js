@@ -14,6 +14,9 @@ import store, { history } from './store';
 injectTapEventPlugin();
 <Router history={history} />
 
+console.log('i am store: hahhahahah',store.getState());
+
+
 const router = <Provider store={store}><Router history={history}>{routes}</Router></Provider>
 
 render(

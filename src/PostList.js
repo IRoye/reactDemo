@@ -33,7 +33,7 @@ class PostList extends Component {
   getStyles() {
     return {
       root: {
-          height: '100vh',
+         height: '100vh',
       },
       content: {
         position: 'relative',
@@ -51,6 +51,11 @@ class PostList extends Component {
       }, 
       link: {
          textDecoration: 'none', 
+         dispaly:'inline-block',
+         float : 'right',
+         fontSize: '1.0rem',// em 相对于父元素来设置字体大小
+         //rem 是相对于根元素<html>
+         margin: 'auto 1rem',
       }
     }
   }
@@ -61,12 +66,15 @@ class PostList extends Component {
       return (
       <div style={styles.content} key={post._id}>
       {/*加入链接  样式要放在前面  */}
-      <Link style={styles.link} to={`/post/${post._id}`}><div style={styles.title}>{post.title}</div> </Link>
+      <div style={styles.title}>{post.title}    
+      <Link style={styles.link} to={`/post/${post._id}`}>查看</Link>
+      <Link style={styles.link} to={`/post/${post._id}/edit`}>编辑</Link>        
+      </div>
       </div>
       )
     }, this.state.posts)
     return (
-    <div>
+    <div style={styles.root}>
       { postList }
     </div>
   );

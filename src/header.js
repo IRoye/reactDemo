@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Search from './search';
 import TopNav from './topNav';
+import ItemCates from './Itemcates';
 class Header extends Component{
 	render(){
 	   return(

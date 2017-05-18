@@ -3,6 +3,7 @@
 export const INCREMNET_LIKES = 'INCREMENT_LIKES';
 export const ADD_COMMENT = 'ADD_COMMENTS';
 export const REMOVE_COMMENTS = 'REMOVE_COMMENTS';
+export const HIDDEN_CATES = 'HIDDEN_CATES';
 
 
 //action creators
@@ -21,4 +22,10 @@ export function addComment(courseId, author, comment){
 
 export function removeComment(courseId, i){
   return {type :REMOVE_COMMENTS, i ,courseId}
+}
+
+// action ， 用来被dispatch, 用store来dispatch
+//必须要有type 和value吗？
+export function changeShow(status){
+   return {type: HIDDEN_CATES, status}
 }

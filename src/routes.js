@@ -10,6 +10,8 @@ import { Provider } from 'react-redux';
 import store, { history } from './store';
 import Postlist from './PostList';
 import Post from './Post';
+import NewPost from './NewPost';
+// import EditPost from './EditPost';
 
 export default(
   // 当URL位／时，渲染的是app这个组件
@@ -23,7 +25,11 @@ export default(
      {/* IndexRoute 的作用就是 渲染默认的组件， 在渲染完最默认的组件  APP之后， 就
      开始渲染Home 这个组件 */}
      <IndexRoute component={Home} />
-     <Route path = "/view/:courseId" component={ShowCourse}></Route>
-     <Route path = "/post/:_id" component={Post}></Route>
+     <Route path = "/view/:courseId" component={ShowCourse} />
+     <Route path = "/post/new" component={NewPost} />
+     {/* 查看一篇文章 */}
+     <Route path = "/post/:_id" component={Post} />
+     {/* 编辑一篇文章  */}
+     {/*<Route path = "/post/:_id/edit" component={EditPost} />*/}
 </Route>
 );
