@@ -50,5 +50,12 @@ export default StyleSheet.create({
   // 父元素悬停的时候显示
   'list li:hover > ul': {
     'display': 'block'
+  },
+  'toDown': {
+    'borderColor': 'black transparent transparent transparent'
+  },
+  'toUp': {
+    'borderColor': 'black transparent transparent transparent',
+    'transform': 'rotate(180deg)'
   }
 });

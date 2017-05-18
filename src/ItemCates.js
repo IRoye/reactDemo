@@ -25,12 +25,20 @@ class ItemCates extends Component{
         // 为什么设置了 高度结果高度却塌陷了， 是因为
         // 布局是flex布局，而容器内的每个元素 flex-shrink 的默认值是：1，
         // 既， 空间不足的时候， 那么容器就会等比例缩小， 结果吧该组件的高度给压缩成0了
+        //最外层的div 是absolute;
         position: 'absolute',
         transition: 'transform 1s ease', 
     }, 
     hide: {
        visibility:'hidden',
-    }  
+    } 
+    ,
+    cates: {
+        position: 'relative',
+        overflow: 'hidden',
+        margin: '0 auto',
+        padding: '10px 20px',
+    } 
 
 }
 
@@ -41,7 +49,14 @@ class ItemCates extends Component{
    console.log('丫的开始打印了哈！！！', hidden);
   const styles = this.getStyles();
   return(
-  <div className="app-item hide" style={styles.root}></div>
+  <div className="app-item hide" style={styles.root}>
+      <ul className="items cates" style={styles.cates}>
+       <li className="item cate"><a href='#'>123</a></li> 
+        <li className="item cate"><a href='#'>123</a></li>   
+        <li className="item cate"><a href='#'>123</a></li>   
+        <li className="item cate"><a href='#'>123</a></li>       
+         </ul>
+  </div>
   );
 }
 }

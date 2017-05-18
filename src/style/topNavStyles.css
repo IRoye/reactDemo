@@ -60,4 +60,12 @@
 .list li:hover > ul{
     display: block;
 }
+.toDown{
+    border-color: black transparent transparent transparent;
+}
+
+.toUp{
+    border-color: black transparent transparent transparent;
+    transform :rotate(180deg);
+}
 
