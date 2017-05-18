@@ -29,7 +29,6 @@ class TopNav extends Component{
     let styles = {
         root: {
         listStyleType : 'none',
-         position: 'relative',
         
      },
         aRoot:{

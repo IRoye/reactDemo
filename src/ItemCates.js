@@ -35,7 +35,7 @@ class ItemCates extends Component{
     ,
     cates: {
         position: 'relative',
-        overflow: 'hidden',
+        overFlow: 'hidden',
         margin: '0 auto',
         padding: '10px 20px',
     } 
