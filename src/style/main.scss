@@ -83,20 +83,6 @@ body{
 	// text-align 内容， 是<img>的话也是可以居中的；
 	text-align: center;	
 }
-
-.app-topnav{
-	width: 50%;
-	height: 100%;
-}
-
-.app-topnav li:hover{
-	background-color: #BDBDBD;
-}
-
-.app-topnav li{
-	transition: 1s;
-}
-
 .app-login{
 	width: 50%;
 	flex-flow: 1;

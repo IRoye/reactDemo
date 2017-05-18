@@ -30,7 +30,13 @@ module.exports = {
     },
     {
       test : /\.scss$/,
-      loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader'
+      loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]'
+
+    },
+    // 引入css modules
+    {
+      test : /\.css$/,
+      loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader?modules&localIdentName=[name]__[local]-[hash:base64:5]'
 
     },
     {

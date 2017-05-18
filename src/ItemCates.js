@@ -15,7 +15,6 @@ class ItemCates extends Component{
          node.classList.remove('hide'); 
      }
  }
-
    getStyles(){
     return {
     root: {
