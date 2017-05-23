@@ -11,6 +11,14 @@ import store, { history } from './store';
 import Postlist from './PostList';
 import Post from './Post';
 import NewPost from './NewPost';
+import Checked from './exercise/checked';
+import Checkbox from './exercise/checkbox';
+import BanCheckBox from './exercise/banCheckbox';
+import AllCheckBox from './exercise/AllCheckBox';
+import TextAeraCheckbox from './exercise/TextAeraCheckbox';
+import Option  from './exercise/Option';
+import Linkage from './exercise/Linkage';
+import FileInput from './exercise/FileInput';
 // import EditPost from './EditPost';
 
 export default(
@@ -31,5 +39,21 @@ export default(
      <Route path = "/post/:_id" component={Post} />
      {/* 编辑一篇文章  */}
      {/*<Route path = "/post/:_id/edit" component={EditPost} />*/}
+     {/*  判断单选框是否选中 */}
+      <Route path = "/exercise/24" component={ Checked } />
+      {/*  复选框至少选中一项 */}
+      <Route path = "/exercise/25" component={Checkbox} />
+      {/* 复选框最多选中几项 */}
+      <Route path = "/exercise/26" component={BanCheckBox} />
+      {/* 复选框， 全选， 取消， 反选 */}
+      <Route path = "/exercise/27" component={AllCheckBox} />
+      {/* 根据指定的内容选中复选框 */}
+      <Route path = "/exercise/28" component={TextAeraCheckbox} />
+      {/* 判断下拉框中的值是否被选中 */}
+      <Route path = "/exercise/30" component={Option} />
+      {/* 下拉框二级联动 */}
+      <Route path = "/exercise/31" component={Linkage} />
+
+      <Route path = "/exercise/32" component={FileInput} />
 </Route>
 );

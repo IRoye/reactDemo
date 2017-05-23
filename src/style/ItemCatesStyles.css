@@ -1,0 +1,23 @@
+.hide{
+    display: none;
+}
+
+.items li {
+    list-style-type: none;
+    width: 15%;
+    margin: .5rem auto;
+}
+
+.item a{
+    text-decoration: none;
+    color: white;  
+}
+.star{
+    color: white;
+}
+/*  文字和图标对齐， 垂直方向， 把文字用span 包裹一下，然后，svg-icon 的话， 那个也需要把
+style 调节一下， 设置一下vertical-align: middle
+  */
+span{
+    vertical-align: middle;
+}

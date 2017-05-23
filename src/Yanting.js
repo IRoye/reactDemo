@@ -28,4 +28,5 @@ class Yanting extends Component{
 		)
 	}
 }
+
 export default Radium(Yanting);

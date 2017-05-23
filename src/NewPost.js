@@ -21,7 +21,6 @@ class NewPost extends Component {
     }
   })
   }
-
    getstyles(){
 
      return {
