@@ -94,7 +94,7 @@ export default class FileInput extends Component {
                         position: 'absolute',
                         clip: 'rect(1px 1px 1px 1px)'
                     }}
-                        accept="image/*"
+                        accept="image/png, image/jpeg, image/gif, image/jpg"
                         id='fileData'
                         onChange={this
                         .change
