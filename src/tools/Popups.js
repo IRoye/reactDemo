@@ -40,20 +40,15 @@ class Popups extends Component {
         }
     }
 
+
     componentWillReceiveProps(nextProps) {
 
         console.log('传递的参数：', nextProps.modal.close);
-        this.setState({
-            content: nextProps.modal.content,
-            close: nextProps.modal.close,
-        })
-
-//    更新state的值会有延迟行为发生！！！！！！！！！
-//避免在执行完this.setState后马上读取this.state，此操作并不会获得最新修改的状态。
-        // let element = document.getElementsByClassName('Modal')[0];
-        // console.log('样式：',element.style.display, this.state.close)
         
-        // element.style.display = this.state.close === 'true'? 'none' : 'flex';
+        this.setState({
+            content: nextProps.modal.content === undefined ? '': nextProps.modal.content,
+            close: nextProps.modal.close === undefined ? 'true': nextProps.modal.content,
+        })
     }
 
     change() {    
@@ -67,6 +62,7 @@ class Popups extends Component {
    componentDidUpdate(prevProps, prevState) {
         let element = document.getElementsByClassName('Modal')[0];
         console.log('样式1：',element.style.display)
+        console.log('开关：', this.state);
         element.style.display = this.state.close === 'true'? 'none' : 'flex';
         console.log('样式2：',element.style.display)
    }
@@ -75,7 +71,6 @@ class Popups extends Component {
         // let element = document.getElementsByClassName('Modal')[0];
         // console.log('样式：',element.style.display)
         // element.style.display = this.state.close === 'true'? 'none' : 'flex';
-
 
         const styles = this.getstyles();
         console.log('22222222222：', this.props)
