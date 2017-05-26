@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
-import { changeModal } from '../actions';
-import { connect } from 'react-redux';
+import {changeModal} from '../actions';
+import {connect} from 'react-redux';
 
- class FileInput extends Component {
+class FileInput extends Component {
 
     //声明一个fileReader
     constructor(props) {
@@ -21,52 +21,49 @@ import { connect } from 'react-redux';
         }
 
     }
-     
+
     // 第二次如果还是选择同样的图片的话， 这个方法就不再执行了
     change() {
         //IE 浏览器文件上传
         if (document.getElementById("fileData").files.length === 0) {
             return;
         }
-       let node = document.getElementById("fileData");
+        let node = document.getElementById("fileData");
         var oFile = document
             .getElementById("fileData")
             .files[0];
-            console.log('类型：', oFile);
-            this.filters(oFile);
-        this.state.reader.readAsDataURL(oFile);
-        //重新创建一个title的值， 保证选择相同文件的时候也能触发onChange 事件
-         node.value = '';
+        console.log('类型：', oFile);
+        if (this.filters(oFile)){
+            this.state.reader.readAsDataURL(oFile);
+            //重新创建一个title的值， 保证选择相同文件的时候也能触发onChange 事件
+            node.value = '';
+        } else {
+            return false;
+        }
     }
-    
-    // 限制图片上传的格式：
-    // 传递的就是 var oFile = document.getElementById("fileData").files[0];
-    filters(files){
-       //1. 限制大小 ；2. 限制图片的格式 
-       if(files.type.indexOf('image') != -1){
-            
-            if(files.size > 512000000){
-                console.log('图片',file.name,'应该小于500k');
-            }
-            else{
-                
-                console.log('props值1111111111111111：', this.props);
-                this.props.dispatch(changeModal('123', 'false'));
-            }
 
-       }else{
-           // 弹窗要不要用redux
-           console.log('不是图片');
-           return false;
-           
-       }
-       
+    // 限制图片上传的格式： 传递的就是 var oFile = document.getElementById("fileData").files[0];
+    filters(files) {
+        //1. 限制大小 ；2. 限制图片的格式
+        if (files.type.indexOf('image') != -1) {
+            if (files.size > 512000) {
+                console.log('图片', files.name, '应该小于500k');
+                this.props.dispatch(changeModal('图片' + files.name + '应该小于500k', 'false'));
+                return false;
+            }
+            this.props.dispatch(changeModal('图片' + files.name + '上传成功', 'true'));
+        }else{
+            //弹窗要不要用redux
+            console.log('文件' + files.name + '格式不是图片');
+            this.props.dispatch(changeModal('文件' + files.name + '不是图片', 'false'));
+            return false;
+        }
+        return true;
     }
 
     getFileSize(file) {
         let fileSize = 0;
         //如果是IE 的话：
-
     }
 
     getStyles() {
@@ -96,7 +93,7 @@ import { connect } from 'react-redux';
                         margin: '20px 10px'
                     }}/>
                 </div>
-            
+
                 <form action="" id='fileUpload' encType='multipart/form-data'>
                     <label
                         htmlFor="fileData"

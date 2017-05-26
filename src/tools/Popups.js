@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 class Popups extends Component {
 
-    constructor(props) {
+    constructor(props) {    
         super(props);
         this.state = {
             content: '',
@@ -31,7 +31,6 @@ class Popups extends Component {
                 bottom: '0',
                 textAlign: 'center',
                 paddingTop: '10px',
-                //display: 'flex', 上下排列
                 flexDirection: 'column',
                 display: 'none',
                 backgroundColor: '#D3D3D3'
@@ -41,10 +40,7 @@ class Popups extends Component {
     }
 
 
-    componentWillReceiveProps(nextProps) {
-
-        console.log('传递的参数：', nextProps.modal.close);
-        
+    componentWillReceiveProps(nextProps) {        
         this.setState({
             content: nextProps.modal.content === undefined ? '': nextProps.modal.content,
             close: nextProps.modal.close === undefined ? 'true': nextProps.modal.content,
@@ -60,20 +56,14 @@ class Popups extends Component {
     }
 
    componentDidUpdate(prevProps, prevState) {
+
         let element = document.getElementsByClassName('Modal')[0];
-        console.log('样式1：',element.style.display)
-        console.log('开关：', this.state);
         element.style.display = this.state.close === 'true'? 'none' : 'flex';
-        console.log('样式2：',element.style.display)
    }
     
     render() {
-        // let element = document.getElementsByClassName('Modal')[0];
-        // console.log('样式：',element.style.display)
-        // element.style.display = this.state.close === 'true'? 'none' : 'flex';
 
         const styles = this.getstyles();
-        console.log('22222222222：', this.props)
         let { modal } = this.props;
         return (
             <div className="Modal" style={styles.root}>
@@ -113,8 +103,9 @@ class Popups extends Component {
 }
 
 Popups.propTypes  = {
+
      modal : PropTypes.object.isRequired,
+     
 }
 
-// Popups = connect()(Popups)
 export default Popups;
