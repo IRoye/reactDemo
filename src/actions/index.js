@@ -4,6 +4,7 @@ export const INCREMNET_LIKES = 'INCREMENT_LIKES';
 export const ADD_COMMENT = 'ADD_COMMENTS';
 export const REMOVE_COMMENTS = 'REMOVE_COMMENTS';
 export const HIDDEN_CATES = 'HIDDEN_CATES';
+export const CHANGE_MODAL = 'CHANGE_MODAL';
 
 
 //action creators
@@ -28,4 +29,7 @@ export function removeComment(courseId, i){
 //必须要有type 和value吗？
 export function changeShow(status){
    return {type: HIDDEN_CATES, status}
+}
+export function changeModal(content, close){
+     return { type: CHANGE_MODAL, content, close}
 }

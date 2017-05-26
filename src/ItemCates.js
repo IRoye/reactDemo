@@ -129,6 +129,7 @@ class ItemCates extends Component{
   );
 }
 }
+
 ItemCates.propTypes = {
  comments : PropTypes.object.isRequired,
  hidden: PropTypes.string.isRequired,

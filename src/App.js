@@ -14,6 +14,7 @@ import { changeShow } from './actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from './actions/index';
+import Popups from './tools/Popups';
 
 
 function mapStateToProps(state) {
@@ -71,6 +72,7 @@ class App extends Component {
         <div className="app-footer">我的地盘我做主gyt</div>
         {/* 点击返回顶部的按钮 */}
         <GoTotop />
+        <Popups {...this.props.data}/>
       </StyleRoot> 
     </MuiThemeProvider>
    );
@@ -83,7 +85,7 @@ class App extends Component {
 
 function mapDispatchToProps(dispatch) {
     return({
-        rotate: () => {dispatch(changeShow)}
+        rotate: () => {dispatch(changeShow)},
     })
 }
 
@@ -91,13 +93,15 @@ function mapDispatchToProps(dispatch) {
 
 // 第二个参数  将 action 作为 props 绑定到APP
 export default connect(state => {
-    // 把此时的state赋值给了status这个key 
-   console.log('什么类型：',typeof state)
+    // 把此时的state赋值给了status这个key
+    // 这个地方的值都传了 
+   console.log('传递的值：', state)
   return {
       data : state
   }
 }, mapDispatchToProps)(Radium(App))
-
+//将 action 作为 props 绑定到 App 上。
+// 也就是传给子组件一个dispatch 的方法， 
 // export default Radium(App);
     
     

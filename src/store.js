@@ -8,12 +8,18 @@ import rootReducer from './reducers/index';
 import  courses from './data/pictures';
 import comments from './data/comments';
 
+
+
 //只在声明所在的块级作用域内有效,
 //声明的常亮是不提升的
 const defaultState = {
     courses: courses,
     comments: comments,
     hidden : 'hide',
+    modal:{
+        content: '',
+        close: 'true',
+    }
 }
 
 // createStore 参数之前只是一个reducer， 

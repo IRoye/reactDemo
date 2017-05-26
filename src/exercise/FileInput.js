@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 
-export default class FileInput extends Component {
+import { changeModal } from '../actions';
+import { connect } from 'react-redux';
+
+ class FileInput extends Component {
 
     //声明一个fileReader
     constructor(props) {
@@ -10,9 +13,7 @@ export default class FileInput extends Component {
             reader: reader
         }
     }
-
     componentDidMount() {
-        console.log('获取到了吗？：', this.state.reader);
         this.state.reader.onload = function (event) {
             document
                 .getElementById('uploadPreview')
@@ -20,17 +21,46 @@ export default class FileInput extends Component {
         }
 
     }
-
+     
+    // 第二次如果还是选择同样的图片的话， 这个方法就不再执行了
     change() {
         //IE 浏览器文件上传
         if (document.getElementById("fileData").files.length === 0) {
             return;
         }
+       let node = document.getElementById("fileData");
         var oFile = document
             .getElementById("fileData")
             .files[0];
+            console.log('类型：', oFile);
+            this.filters(oFile);
         this.state.reader.readAsDataURL(oFile);
+        //重新创建一个title的值， 保证选择相同文件的时候也能触发onChange 事件
+         node.value = '';
+    }
+    
+    // 限制图片上传的格式：
+    // 传递的就是 var oFile = document.getElementById("fileData").files[0];
+    filters(files){
+       //1. 限制大小 ；2. 限制图片的格式 
+       if(files.type.indexOf('image') != -1){
+            
+            if(files.size > 512000000){
+                console.log('图片',file.name,'应该小于500k');
+            }
+            else{
+                
+                console.log('props值1111111111111111：', this.props);
+                this.props.dispatch(changeModal('123', 'false'));
+            }
 
+       }else{
+           // 弹窗要不要用redux
+           console.log('不是图片');
+           return false;
+           
+       }
+       
     }
 
     getFileSize(file) {
@@ -109,3 +139,6 @@ export default class FileInput extends Component {
         );
     }
 }
+
+FileInput = connect()(FileInput)
+export default FileInput;
