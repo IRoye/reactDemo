@@ -19,7 +19,7 @@ import TextAeraCheckbox from './exercise/TextAeraCheckbox';
 import Option  from './exercise/Option';
 import Linkage from './exercise/Linkage';
 import FileInput from './exercise/FileInput';
-// import EditPost from './EditPost';
+import ZoomImg from './exercise/zoomImg';
 
 export default(
   // 当URL位／时，渲染的是app这个组件
@@ -55,5 +55,7 @@ export default(
       <Route path = "/exercise/31" component={Linkage} />
 
       <Route path = "/exercise/32" component={FileInput} />
+      {/*  放大镜显示图片 */}
+      <Route path = "/exercise/33" component={ZoomImg} />
 </Route>
 );

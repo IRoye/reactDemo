@@ -123,6 +123,11 @@ class ItemCates extends Component{
             <a href='/exercise/32'>
                 <span>图片预览</span>
             </a>
+        </li>       
+        <li className="item cate">
+            <a href='/exercise/33'>
+                <span>放大镜显示图片</span>
+            </a>
         </li>          
          </ul>
   </div>
