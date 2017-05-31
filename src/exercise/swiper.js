@@ -20,6 +20,30 @@ export default class Swiper extends Component {
        //为每一个按钮注册事件
        let nodes = document.getElementById('buttons').getElementsByTagName('span');
        //nodes[0].style.backgroundColor = '#f5f5f5';
+       var timer;
+
+       setInterval(function(){
+           list.style.left  = parseInt(list.style.left) - 600 + 'px';
+            if(parseInt(list.style.left) > -600){
+              list.style.left = '-3000px';
+           }
+           else if(parseInt(list.style.left) < -3000){
+              list.style.left = '-600px'; 
+           }
+
+           for(var singleButton in nodes){
+              if(singleButton === 'length'){
+                 break;
+             }
+            nodes[singleButton].className = '';
+           }
+           
+           index ++;
+           if(index === 6){
+               index = 1;
+           }
+           nodes[index - 1].className = 'on';
+     } , 3000);   
        for(var i in nodes){
            if (i === 'length') {
                 break;
