@@ -21,8 +21,8 @@ export default class Swiper extends Component {
        let nodes = document.getElementById('buttons').getElementsByTagName('span');
        //nodes[0].style.backgroundColor = '#f5f5f5';
        var timer;
-
-       setInterval(function(){
+      function play(){
+       timer = setInterval(function(){
            list.style.left  = parseInt(list.style.left) - 600 + 'px';
             if(parseInt(list.style.left) > -600){
               list.style.left = '-3000px';
@@ -43,7 +43,19 @@ export default class Swiper extends Component {
                index = 1;
            }
            nodes[index - 1].className = 'on';
-     } , 3000);   
+     } , 2000);  
+  }
+
+    play();
+     // 清除定时器
+     function stop(){
+       clearInterval(timer);
+     }
+
+     // 鼠标移入的时候是停止执行
+    list.onmouseover = stop;
+    list.onmouseout = play;
+
        for(var i in nodes){
            if (i === 'length') {
                 break;

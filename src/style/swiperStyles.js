@@ -9,5 +9,8 @@ export default StyleSheet.create({
 on': {
     // 之前  是写错了
     'backgroundColor': '#f5f5f5'
+  },
+  'img': {
+    'cursor': 'pointer'
   }
 });
