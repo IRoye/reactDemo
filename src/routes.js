@@ -21,6 +21,7 @@ import Linkage from './exercise/Linkage';
 import FileInput from './exercise/FileInput';
 import ZoomImg from './exercise/zoomImg';
 import swiper from './exercise/swiper';
+import ShowBigImg from './exercise/ShowBigImg';
 
 export default(
   // 当URL位／时，渲染的是app这个组件
@@ -60,5 +61,7 @@ export default(
       <Route path = "/exercise/33" component={ZoomImg} />
        {/* 图片轮播 */}
       <Route path = "/exercise/34" component={swiper} />
+      {/*  点击显示大图 */}
+      <Route path = "/exercise/35" component={ ShowBigImg } />
 </Route>
 );
