@@ -25,6 +25,7 @@ constructor(props){
         this.setState({
             post : res.data.post
         })
+        console.log(res.data.post);
     }).catch(res => {
         if(error.response){
             console.log(error.response.data.error);
@@ -33,6 +34,11 @@ constructor(props){
         }
     })
  }
+
+ componentDidUpdate(prevProps, prevState) {
+     document.getElementsByClassName('content')[0].innerHTML = this.state.post;
+ }
+
     getStyles() {
     return {
       root: {
@@ -40,13 +46,13 @@ constructor(props){
       },
       content: {
         position: 'relative',
-        width: '100%',
+        width: '70%',
         maxWidth: '600px',
         margin: '20px auto',
         backgroundColor: '#fff',
-        borderRadius: '5px',
         padding: '16px',
-        boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px'
+        borderLeft: '1px solid #d3d3d3',
+        borderRight: '1px solid #d3d3d3',
       },
       title: {
         fontSize: '1.2em',
@@ -58,11 +64,7 @@ constructor(props){
       const styles = this.getStyles();   
       return(
          <div style={styles.root}>
-         <div style={styles.content}>
-         <div style={styles.category}>{this.state.post.category}</div>
-         <div style={styles.title}>{this.state.post.title}</div>
-         <div style={styles.text}>{this.state.post.content}</div>
-         </div>
+         <div style={styles.content} className='content'>this.state.post</div>
          </div>
       );
   }

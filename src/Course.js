@@ -34,7 +34,6 @@ increment() {
          backgroundSize: 'contain',
       },
       img: {
-        height: '70vh',
         width: '100%',
         display: 'block',
       }

@@ -67,7 +67,7 @@ class TopNav extends Component{
              <li style={styles.liRoot}><a href={`/home`} style={styles.aRoot}>首页</a></li>
              <li style={styles.liRoot}><a href={`/about`} style={styles.aRoot}>艳婷</a></li>
              <li style={styles.liRoot}><a href={`/posts`} style={styles.aRoot}>文章列表</a></li>
-             <li style={styles.liRoot}><a href="#" style={styles.aRoot} onClick={this.rotate.bind(this)}>艳婷</a>
+             <li style={styles.liRoot}><a href="#" style={styles.aRoot}>艳婷</a>
              {/*  此处加入二级菜单  */}
              {/* 二级开始 */}
              <ul>

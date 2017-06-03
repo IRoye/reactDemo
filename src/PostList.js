@@ -15,7 +15,9 @@ class PostList extends Component {
   }
 // componentWillMount会在组件render之前执行，并且永远都只执行一次
  componentWillMount() {
-     console.log('haha')
+
+ // 关于使用高度100vh , 可以在 这个函数里面提前判断一下是不是真的需要使用这个值
+
      // axios是返回一个promise
      axios.get(`${Settings.host}/posts`).then(res => {
          this.setState({
@@ -33,7 +35,7 @@ class PostList extends Component {
   getStyles() {
     return {
       root: {
-         height: '100vh',
+        //  height: '100vh',
       },
       content: {
         position: 'relative',

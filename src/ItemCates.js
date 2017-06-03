@@ -36,6 +36,7 @@ class ItemCates extends Component{
         //float: 'left',
         position: 'absolute',
         transition: 'transform 1s ease', 
+        zIndex: '101',
     }, 
     cates: {
         display: 'flex',
