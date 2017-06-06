@@ -144,6 +144,11 @@ class ItemCates extends Component{
             <a href='/exercise/36'>
                 <span>文本省略号</span>
             </a>
+        </li>      
+         <li className="item cate">
+            <a href='/exercise/37'>
+                <span>文本段落的展开和折叠</span>
+            </a>
         </li>                     
          </ul>
   </div>

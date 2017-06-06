@@ -23,6 +23,7 @@ import ZoomImg from './exercise/zoomImg';
 import swiper from './exercise/swiper';
 import ShowBigImg from './exercise/ShowBigImg';
 import Ellipsis from './exercise/Ellipsis';
+import Fold from './exercise/Fold';
 
 export default(
   // 当URL位／时，渲染的是app这个组件
@@ -66,5 +67,7 @@ export default(
       <Route path = "/exercise/35" component={ ShowBigImg } />
       {/* 文本省略号 */}
       <Route path = "/exercise/36" component={ Ellipsis } />
+      {/* 文本段落的展开和折叠 */}
+       <Route path = "/exercise/37" component={ Fold } />
 </Route>
 );

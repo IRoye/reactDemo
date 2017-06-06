@@ -12,7 +12,6 @@ export default class Ellipsis extends Component {
     console.log('距离父元素top',node.offsetTop);
     console.log('距离父元素高',node.offsetHeight);
     console.log('距离父元素宽',node.offsetWidth);
-    //console.log('父元素',node.offsetParent.style);
 
    }
 
