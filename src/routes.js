@@ -22,6 +22,7 @@ import FileInput from './exercise/FileInput';
 import ZoomImg from './exercise/zoomImg';
 import swiper from './exercise/swiper';
 import ShowBigImg from './exercise/ShowBigImg';
+import Ellipsis from './exercise/Ellipsis';
 
 export default(
   // 当URL位／时，渲染的是app这个组件
@@ -63,5 +64,7 @@ export default(
       <Route path = "/exercise/34" component={swiper} />
       {/*  点击显示大图 */}
       <Route path = "/exercise/35" component={ ShowBigImg } />
+      {/* 文本省略号 */}
+      <Route path = "/exercise/36" component={ Ellipsis } />
 </Route>
 );

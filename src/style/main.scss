@@ -176,4 +176,15 @@ body{
 	 visibility:hidden; 
  }
 
+.contentE {
+	width: 400px;
+display: -webkit-box !important;  
+overflow: hidden;  
+text-overflow: ellipsis;  
+word-break: break-all;  
+-webkit-box-orient: vertical;  
+-webkit-line-clamp: 3;  
+border: 1px solid black;
+}
+
 @import 'account';
