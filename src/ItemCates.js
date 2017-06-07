@@ -149,7 +149,12 @@ class ItemCates extends Component{
             <a href='/exercise/37'>
                 <span>文本段落的展开和折叠</span>
             </a>
-        </li>                     
+        </li>   
+        <li className="item cate">
+            <a href='/exercise/38'>
+              <span>关键字的高亮显示</span>
+            </a>
+        </li>                    
          </ul>
   </div>
   );

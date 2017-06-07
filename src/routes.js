@@ -24,6 +24,7 @@ import swiper from './exercise/swiper';
 import ShowBigImg from './exercise/ShowBigImg';
 import Ellipsis from './exercise/Ellipsis';
 import Fold from './exercise/Fold';
+import HeightLight from './exercise/HeightLight';
 
 export default(
   // 当URL位／时，渲染的是app这个组件
@@ -69,5 +70,7 @@ export default(
       <Route path = "/exercise/36" component={ Ellipsis } />
       {/* 文本段落的展开和折叠 */}
        <Route path = "/exercise/37" component={ Fold } />
+       {/* 关键字的高亮显示 */}
+       <Route path = "/exercise/38" component={ HeightLight } />
 </Route>
 );
