@@ -8,6 +8,7 @@ html{
 html, body{
 	padding: 0;
 	margin: 0;
+	min-height: 100%;
 }
 
 *{
@@ -25,8 +26,7 @@ body{
 .app-wrap{
 	display: flex;
 	flex-direction: column; 
-	height: 100vh;
-	min-height: 100vh;
+	min-height: 100%;
 }
 .app-header{
     
@@ -97,6 +97,7 @@ body{
 	font-size: 0.8rem;
 	color:black;
 	flex-shrink:0;
+	height: 50px;
 	border-top: 1px solid  #E0E0E0;
 }
 
@@ -185,6 +186,12 @@ word-break: break-all;
 -webkit-box-orient: vertical;  
 -webkit-line-clamp: 3;  
 border: 1px solid black;
+}
+.home{
+	min-height: calc(100vh - 114px);
+}
+.root{
+	min-height: calc(100vh - 114px);
 }
 
 @import 'account';

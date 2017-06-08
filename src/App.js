@@ -63,7 +63,8 @@ class App extends Component {
     return (
    	<MuiThemeProvider>
            {/*2. 第二部， 拿<StyleRoot> 来替换div标签*/}
-       <StyleRoot className="app-wrap">
+       <StyleRoot className="app-wrap" style={{
+       }}>
        <Header />
        {/* 点击工具展示一个div */}
        <ItemCates {...this.props.data} />

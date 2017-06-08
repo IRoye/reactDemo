@@ -154,6 +154,11 @@ class ItemCates extends Component{
             <a href='/exercise/38'>
               <span>关键字的高亮显示</span>
             </a>
+        </li>  
+        <li className="item cate">
+            <a href='/exercise/39'>
+              <span>div来模拟TextAera</span>
+            </a>
         </li>                    
          </ul>
   </div>

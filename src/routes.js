@@ -25,6 +25,7 @@ import ShowBigImg from './exercise/ShowBigImg';
 import Ellipsis from './exercise/Ellipsis';
 import Fold from './exercise/Fold';
 import HeightLight from './exercise/HeightLight';
+import TextAera from './exercise/TextAera';
 
 export default(
   // 当URL位／时，渲染的是app这个组件
@@ -72,5 +73,7 @@ export default(
        <Route path = "/exercise/37" component={ Fold } />
        {/* 关键字的高亮显示 */}
        <Route path = "/exercise/38" component={ HeightLight } />
+       {/* 关键字高亮显示  */}
+       <Route path = "/exercise/39" component={ TextAera } />
 </Route>
 );
