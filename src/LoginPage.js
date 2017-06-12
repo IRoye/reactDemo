@@ -4,6 +4,7 @@ import React,{Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ActionLock from 'material-ui/svg-icons/action/lock';
 import ActionAccountCircle from 'material-ui/svg-icons/action/account-circle';
+import axios from 'axios';
 export default class LoginPage extends Component {
     //记住我
     remeber(){
@@ -13,8 +14,22 @@ export default class LoginPage extends Component {
     handleSubmit(e){
     // 之前为什么不执行，是因为没有阻止默认的提交事件
     e.preventDefault();	
-    //调用后台接口
-    console.log('123');
+    let params = new URLSearchParams();
+    // 获取数据 username, userpass, 这样直接取得是dom 结构
+    let username = this.refs.username.value;
+    let userpass = this.refs.userpass.value;
+    let remember = this.refs.remember.value;
+    
+    params.append('username', username);
+    params.append('userpass', userpass);
+    params.append('remember', remember);
+    
+    axios.post(`http://localhost:3000/login`, params).then((data) => {
+        //code, msg
+        console.log(data.data.code);
+        console.log(data.data.msg);
+    })
+
 }
 
     getStyles(){
@@ -83,7 +98,7 @@ export default class LoginPage extends Component {
                                 verticalAlign: 'middle',
                                 width: '10%',
                             }}/>
-                            <input type="text" placeholder='电话或邮箱' id='login-name' name='login-name' style={styles.input}/>
+                            <input type="text" placeholder='电话或邮箱' id='username' name='username' ref='username' style={styles.input}/>
                        </div>
                        <div className='input-field' style={{
                            borderRadius: '0 0 4px 4px',
@@ -94,7 +109,7 @@ export default class LoginPage extends Component {
                               verticalAlign: 'middle',
                               width: '10%', 
                            }}/>
-                           <input type="password" placeholder='密码' id='login-pass' name='login-name' style={styles.input}/>
+                           <input type="password" placeholder='密码' id='userpass' name='userpass' ref='userpass' style={styles.input}/>
                        </div>
                     {/* 记住我 */}
                     <div className='remember-btn' style={{
@@ -106,7 +121,7 @@ export default class LoginPage extends Component {
                         marginTop: '1rem',
                         marginBottom: '2rem',
                     }}>
-                       <input type='checkbox' defaultChecked='checked' id='remeber_me' name='remeber_me' onChange={this.remeber.bind(this)} />
+                       <input type='checkbox' defaultChecked='checked' id='remeber_me' name='remeber_me' ref='remember' onChange={this.remeber.bind(this)} />
                        <span>记住我</span>
                     </div>
                     {/* 登录遇到问题 */}

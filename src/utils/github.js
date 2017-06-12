@@ -16,7 +16,7 @@ let github = {
             return {
               repos: arr[0].data,
               user: arr[1].data
-            }
+          }
      	});
      
      }
