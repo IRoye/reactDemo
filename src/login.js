@@ -1,9 +1,25 @@
 import React, {Component} from 'react';
-class login extends Component{
+import {Link} from 'react-router';
+class Login extends Component{
+  getStyles(){
+     return {
+       root:{
+
+       }
+     }
+  }
 	render(){
 	   return(
-        <div className="app-header"/>
+        <div style={{
+          marginRight: '2rem',
+        }}> 
+           <span><Link style={{
+             fontSize: '.9rem',
+             textDecoration: 'none',
+             color: 'black',
+           }} to={`/login`}>登录</Link></span>
+        </div>
     );
   }
 }
-export default login;
+export default Login;

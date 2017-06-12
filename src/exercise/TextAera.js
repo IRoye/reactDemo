@@ -3,16 +3,39 @@
 import React,{Component} from 'react';
 
 export default class TextAera extends Component {
+
+
+    haha(){
+        console.log('哈哈');
+    }
     componentDidMount() {
+        this.haha();
         //输入文本
        let inputLeft = document.getElementById('inputAera');
        let button = document.getElementById('move');
        let inputRight = document.getElementById('inputRight');
-
+       //使用一个正则表达式字面量，其由包含在斜杠之间的模式组成
+    //    .的话， 只匹配了一个字符
+       let regex = /(<div>.*|\n<\/div>)/;
        button.onclick = function(){
-           //获取左边的文本
-           let words = inputLeft.innerHTML;
-           let appendWords = document.createTextNode(words);
+           //不能这样判断
+           let words = inputLeft.childNodes;
+           for(var i = 0;i< words.length; i++){
+               console.log('类型：', words[i].nodeType, 'words[i]:', words[i]);
+               //对每个节点进行处理
+               //console.log('words[i]:', words[i].nodeValue.toString());
+               console.log(regex.test(words[i].toString()));
+               if(regex.test(words[i].toString())){
+                   console.log('hahah');
+               }
+
+           }
+           // 
+        //    let newWords = words.replace(regex, function(match, p1, p2){
+        //       let result = '';
+            //    console.log('match:', match, 'p1:', p1, 'p2:', p2);
+
+        //    });
            inputRight.innerHTML = words;
        }
     }

@@ -26,11 +26,18 @@ import Ellipsis from './exercise/Ellipsis';
 import Fold from './exercise/Fold';
 import HeightLight from './exercise/HeightLight';
 import TextAera from './exercise/TextAera';
+import LoginPage from './LoginPage';
+import { Router, browserHistory } from 'react-router'
 
-export default(
+export default function getRoutes(){
   // 当URL位／时，渲染的是app这个组件
   // 每一个<Route>对应了一个react组件, 用app作为布局文件, 
   // 让其包含 home, about, account 子组件
+
+  // 这种形式的路由配置方式， 只能是配置一个, 如果并列再加一个的话，报错
+  return(
+  <Router history={history}>
+  <Route path="/login" component={LoginPage} />
   <Route path="/" component={App} >
      <Route path = "/home" component={Home} />
      <Route path = "/about" component={Yanting} />
@@ -76,4 +83,6 @@ export default(
        {/* 关键字高亮显示  */}
        <Route path = "/exercise/39" component={ TextAera } />
 </Route>
-);
+  </Router>
+  );
+}

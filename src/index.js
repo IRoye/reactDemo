@@ -4,7 +4,8 @@ import App from './App';
 import './style/main.scss';
 
 import { Router, browserHistory } from 'react-router'
-import routes from './routes';
+// export 
+import getRoutes from './routes';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 //官方的react 跟redux 的绑定
@@ -14,10 +15,7 @@ import store, { history } from './store';
 injectTapEventPlugin();
 <Router history={history} />
 
-console.log('i am store: hahhahahah',store.getState());
-
-
-const router = <Provider store={store}><Router history={history}>{routes}</Router></Provider>
+const router = <Provider store={store}>{getRoutes()}</Provider>
 
 render(
   router, document.getElementById('root')
