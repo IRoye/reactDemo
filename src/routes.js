@@ -27,7 +27,8 @@ import Fold from './exercise/Fold';
 import HeightLight from './exercise/HeightLight';
 import TextAera from './exercise/TextAera';
 import LoginPage from './LoginPage';
-import { Router, browserHistory } from 'react-router'
+import { Router, browserHistory } from 'react-router';
+import LazyLoad from './exercise/LazyLoad'; 
 
 export default function getRoutes(){
   // 当URL位／时，渲染的是app这个组件
@@ -80,8 +81,10 @@ export default function getRoutes(){
        <Route path = "/exercise/37" component={ Fold } />
        {/* 关键字的高亮显示 */}
        <Route path = "/exercise/38" component={ HeightLight } />
-       {/* 关键字高亮显示  */}
+       {/* 关键字高亮显示 */}
        <Route path = "/exercise/39" component={ TextAera } />
+       {/* 图片懒加载 */}
+       <Route path = "/exercise/40" component={ LazyLoad } />
 </Route>
   </Router>
   );

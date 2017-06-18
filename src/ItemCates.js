@@ -159,6 +159,11 @@ class ItemCates extends Component{
             <a href='/exercise/39'>
               <span>div来模拟TextAera</span>
             </a>
+        </li>    
+        <li className="item cate">
+            <a href='/exercise/40'>
+              <span>图片懒加载</span>
+            </a>
         </li>                    
          </ul>
   </div>

@@ -1,5 +1,5 @@
 //  登录页面
-
+import { browserHistory } from 'react-router'
 import React,{Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import ActionLock from 'material-ui/svg-icons/action/lock';
@@ -23,11 +23,14 @@ export default class LoginPage extends Component {
     params.append('username', username);
     params.append('userpass', userpass);
     params.append('remember', remember);
-    
+
     axios.post(`http://localhost:3000/login`, params).then((data) => {
         //code, msg
-        console.log(data.data.code);
-        console.log(data.data.msg);
+        if(data.data.code === '0'){
+            //页面跳转
+            // 组件外部使用导航；
+           browserHistory.push('/home');
+        }    
     })
 
 }
